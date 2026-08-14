@@ -1,20 +1,28 @@
-
 providers = ["node"]
 
 [variables]
 NODE_ENV = "development"
+# nixpacks' pinned nixpkgs ships hugo 0.140.2, but the theme needs >= 0.163.0
+# extended, so install the official release binary instead of the nix package.
+HUGO_VERSION = "0.165.0"
+HUGO_BIN = "/usr/local/bin/hugo"
 
 [phases.setup]
-nixPkgs = ["nodejs_22", "hugo", "go", "caddy"]
+nixPkgs = ["nodejs_22", "go", "caddy", "curl", "gnutar", "gzip"]
 
 [phases.install]
 cmds = [
-  "npm install",
-  "cd exampleSite && hugo mod tidy && hugo mod npm pack && npm install",
+  "case \"$(uname -m)\" in x86_64) HUGO_ARCH=linux-amd64 ;; aarch64|arm64) HUGO_ARCH=linux-arm64 ;; *) echo \"unsupported arch: $(uname -m)\" && exit 1 ;; esac && mkdir -p /usr/local/bin && curl -sSfL \"https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_${HUGO_ARCH}.tar.gz\" | tar -xz -C /usr/local/bin hugo && \"$HUGO_BIN\" version",
 ]
 
+# everything below runs in the build phase because it needs the full repo:
+# exampleSite/go.mod resolves the theme through a `replace` directive to ../
 [phases.build]
-cmds = ["cd exampleSite && hugo --gc --minify --cleanDestinationDir"]
+cmds = [
+  "npm install",
+  "cd exampleSite && \"$HUGO_BIN\" mod tidy && \"$HUGO_BIN\" mod npm pack && npm install",
+  "cd exampleSite && \"$HUGO_BIN\" --gc --minify --cleanDestinationDir",
+]
 
 [start]
 cmd = "caddy file-server --root exampleSite/public --listen :${PORT:-8080}"
