@@ -1,0 +1,20 @@
+
+providers = ["node"]
+
+[variables]
+NODE_ENV = "development"
+
+[phases.setup]
+nixPkgs = ["nodejs_22", "hugo", "go", "caddy"]
+
+[phases.install]
+cmds = [
+  "npm install",
+  "cd exampleSite && hugo mod tidy && hugo mod npm pack && npm install",
+]
+
+[phases.build]
+cmds = ["cd exampleSite && hugo --gc --minify --cleanDestinationDir"]
+
+[start]
+cmd = "caddy file-server --root exampleSite/public --listen :${PORT:-8080}"

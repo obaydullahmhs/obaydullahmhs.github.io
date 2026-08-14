@@ -13,59 +13,108 @@ section:
 buttons:
 - name: All
   filter: "all"
-- name: Basic
-  filter: "basic"
 - name: Language
   filter: "language"
-- name: Container
-  filter: "container"
-- name: Others
-  filter: "others"
+- name: Cloud Native
+  filter: "cloud-native"
+- name: Data
+  filter: "data"
+- name: Tooling
+  filter: "tooling"
 
 # Your Skills.
 # Give a summary of you each skill in the summary section.
 skills:
+- name: Go
+  logo: /images/sections/skills/go.png
+  summary: "My primary language for the last three years. Kubernetes controllers, operators, and backend services - written to be tested, profiled, and maintained."
+  categories: ["language"]
+  url: "https://go.dev/"
+
 - name: Kubernetes
   logo: /images/sections/skills/kubernetes.png
-  summary: "Capable of deploying, managing application on Kubernetes. Experienced in writing Kubernetes controllers for CRDs."
-  categories: ["container"]
+  summary: "Designed CRDs and wrote controllers with Kubebuilder/controller-runtime. Comfortable with the operator pattern, admission webhooks, RBAC, and day-2 automation."
+  categories: ["cloud-native"]
   url: "https://kubernetes.io/"
-
-- name: Go Development
-  logo: /images/sections/skills/go.png
-  summary: "Using as the main language for professional development. Capable of writing scalable, testable, and maintainable program."
-  categories: ["basic", "language"]
-  url: "https://golang.org/"
-
-- name: Cloud Computing
-  logo: /images/sections/skills/cloud.png
-  summary: "Worked with most of the major clouds such as GCP, AWS, Azure etc."
-  categories: ["others"]
 
 - name: Docker
   logo: /images/sections/skills/docker.svg
-  summary: "Write most of the programs as dockerized container. Experienced with multi-stage, multi-arch build process."
-  categories: ["container"]
+  summary: "Ship everything as containers. Experienced with multi-stage and multi-arch builds, and slimming images for production."
+  categories: ["cloud-native", "tooling"]
   url: "https://www.docker.com/"
+
+- name: Helm
+  logo: /images/sections/skills/helm.svg
+  summary: "Package and release Kubernetes applications with Helm charts, including chart authoring for operators and their dependencies."
+  categories: ["cloud-native", "tooling"]
+  url: "https://helm.sh/"
+
+- name: Apache Kafka
+  logo: /images/sections/skills/apachekafka.svg
+  summary: "Built the KubeDB operator support for Kafka - provisioning, custom configuration, TLS, scaling, upgrades, plus Connect, Schema Registry, and REST Proxy."
+  categories: ["data"]
+  url: "https://kafka.apache.org/"
+
+- name: RabbitMQ
+  logo: /images/sections/skills/rabbitmq.svg
+  summary: "Improved RabbitMQ support in KubeDB and use it for asynchronous messaging between backend services."
+  categories: ["data"]
+  url: "https://www.rabbitmq.com/"
+
+- name: PostgreSQL
+  logo: /images/sections/skills/postgresql.svg
+  summary: "Relational modelling, queries, and running Postgres as a managed workload on Kubernetes."
+  categories: ["data"]
+  url: "https://www.postgresql.org/"
+
+- name: MySQL
+  logo: /images/sections/skills/mysql.svg
+  summary: "Primary datastore on my current project. Schema design, migrations, and query tuning - from Go, mostly through GORM."
+  categories: ["data"]
+  url: "https://www.mysql.com/"
+
+- name: Redis
+  logo: /images/sections/skills/redis.svg
+  summary: "Caching and ephemeral state for latency-sensitive services."
+  categories: ["data"]
+  url: "https://redis.io/"
+
+- name: Envoy Gateway
+  logo: /images/sections/skills/envoy.svg
+  summary: "Extended the Kubernetes Gateway API with database protocol-aware routes on top of Envoy, exposing database nodes and UIs through a single gateway."
+  categories: ["cloud-native"]
+  url: "https://gateway.envoyproxy.io/"
+
+- name: GitOps (FluxCD / ArgoCD)
+  logo: /images/sections/skills/fluxcd.svg
+  summary: "Built GitOps CRDs and a reconciler that turns Git-driven changes into KubeDB operations - scaling, reconfiguration, and upgrades."
+  categories: ["cloud-native", "tooling"]
+  url: "https://fluxcd.io/"
 
 - name: Prometheus
   logo: /images/sections/skills/prometheus.png
-  summary: "Capable of setup, configure Prometheus metrics. Experienced with PromQL, AlertManager. Also, experienced with writing metric exporters."
-  categories: ["basic"]
+  summary: "Instrument services and operators, write PromQL, and configure alert rules for database workloads."
+  categories: ["cloud-native"]
   url: "https://prometheus.io/"
+
+- name: Grafana
+  logo: /images/sections/skills/grafana.svg
+  summary: "Built dashboards for Kafka and other database clusters managed by KubeDB."
+  categories: ["cloud-native"]
+  url: "https://grafana.com/"
 
 - name: Linux
   logo: /images/sections/skills/linux.png
-  summary: "Using as the main operating system. Capable of writing bash/shell scripts."
-  categories: ["others"]
+  summary: "Daily driver. Comfortable with bash scripting, systemd, and debugging things from the shell."
+  categories: ["tooling"]
 
 - name: Git
   logo: /images/sections/skills/git.png
-  summary: "Experienced with git-based development. Mostly, use Github. Also, have experience in working with GitLab."
-  categories: ["basic"]
+  summary: "Git-based development with GitHub - reviews, release branches, and CI automation through GitHub Actions."
+  categories: ["tooling"]
   url: "https://git-scm.com/"
 
 - name: C++
   logo: /images/sections/skills/c++.png
-  summary: "Know basic C/C++ programming. Used for contest programming and problem solving."
-  categories: ["basic", "language"]
+  summary: "The language I grew up on. Used it through 170+ rated contests on Codeforces and every ICPC regional I competed in."
+  categories: ["language"]

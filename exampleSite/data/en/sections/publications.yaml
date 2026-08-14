@@ -2,9 +2,10 @@
 section:
   name: Publications
   id: publications
-  enable: true
+  # No publications yet - flip this to true when you have some.
+  enable: false
   weight: 6
-  showOnNavbar: true
+  showOnNavbar: false
   # Can optionally hide the title in sections
   # hideTitle: true
 

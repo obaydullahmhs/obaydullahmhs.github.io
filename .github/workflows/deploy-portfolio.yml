@@ -1,0 +1,56 @@
+name: Deploy Portfolio
+
+# Builds the site in exampleSite/ and publishes it to GitHub Pages.
+on:
+  push:
+    branches:
+      - main
+      - release
+  workflow_dispatch:
+
+# Allow the GITHUB_TOKEN to deploy to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment, skipping queued runs in between
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          submodules: recursive
+
+      # Installs hugo-extended, node and go as pinned in mise.toml
+      - uses: jdx/mise-action@v4
+
+      - name: Build site
+        # "mise run build" installs the npm/hugo module deps and runs
+        # `hugo --gc --minify --cleanDestinationDir` inside exampleSite/
+        run: mise run build
+
+      # "enablement" turns Pages on (source = GitHub Actions) if it isn't
+      # already enabled, instead of failing with "Get Pages site failed".
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: exampleSite/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

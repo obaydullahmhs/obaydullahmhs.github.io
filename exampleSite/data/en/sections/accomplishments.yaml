@@ -1,7 +1,9 @@
 # section information
 section:
-  name: Accomplishments
-  id: accomplishments
+  name: Competitive Programming
+  id: competitive-programming
+  # the section id no longer matches the partial name, so point at it explicitly
+  template: sections/accomplishments.html
   enable: true
   weight: 9
   showOnNavbar: true
@@ -11,36 +13,37 @@ section:
 
 # Your accomplishments
 accomplishments:
-- name: Linux Foundation System Administrator
-  timeline: "March 2018 - March 2019"
+- name: Honorable Mention - ICPC Asia West Continent Final Contest
+  timeline: "2022"
   organization:
-    name: Linux Foundation
-    url: https://www.linuxfoundation.org
-  courseOverview: This course helps to understand the key concepts such as networking, storage, security, maintenance, logging and monitoring, application lifecycle, troubleshooting, API object primitives etc. It also help to grow the ability to establish basic use-cases for end users.
-  certificateURL: "https://example.com"
+    name: ICPC
+    url: https://icpc.global
+  courseOverview: Competed in the Asia West Continent Final with team *End of an Era* and earned an Honorable Mention, after advancing through the Asia Dhaka Regional.
 
-- name: Machine Learning
-  timeline: "Jun 2020 - Jan 2021"
+- name: 21st and 28th Place - ICPC Asia Dhaka Regional Contest
+  timeline: "2020, 2022"
   organization:
-    name: Coursera
-    url: https://www.coursera.org
-  courseOverview: "This course provides a broad introduction to machine learning, datamining, and statistical pattern recognition. Topics include: (i) Supervised learning (parametric/non-parametric algorithms, support vector machines, kernels, neural networks). (ii) Unsupervised learning (clustering, dimensionality reduction, recommender systems, deep learning). (iii) Best practices in machine learning (bias/variance theory; innovation process in machine learning and AI)."
-  certificateURL: "https://example.com"
+    name: ICPC
+    url: https://icpc.global
+  courseOverview: 21st place in 2022 with team *End of an Era* and 28th place in 2020 with team *BUP Aerolite*, representing Bangladesh University of Professionals.
 
-- name: Grokking the System Design Interview
-  timeline: "Jan 2018 - Sept 2018"
+- name: 19th Place - SUST Inter University Programming Contest
+  timeline: "2023"
   organization:
-    name: educative
-    url: https://www.educative.io
-  courseOverview: This course is a complete guide to master the SDIs. It is created by hiring managers who’ve been working at Google, Facebook, Microsoft, and Amazon. We've carefully chosen a set of questions that have not only been repeatedly asked at top companies, but also provide a thorough experience to handle any system design problem.
-  certificateURL: "https://example.com"
+    name: Shahjalal University of Science and Technology
+    url: https://www.sust.edu/
+  courseOverview: 19th place at SUST IUPC 2023 with team *Resurrection*.
 
-- name: Mastering Multithreading Programming with Go (Golang)
-  timeline: "Nov 2017 - Mar 2018"
+- name: Google Code Jam and Kick Start
+  timeline: "2021, 2022"
   organization:
-    name: Udemy
-    url: https://www.udemy.com
-  courseOverview: Discover how to create responsive and high performance software. Develop programs with Golang that are highly Concurrent and Parallel. Improve your programming skills in Go with more advanced, multithreading topics.
-  certificateURL: "https://example.com"
- 
+    name: Google
+    url: https://codingcompetitions.withgoogle.com/
+  courseOverview: Advanced to Round 2 of Code Jam in both 2021 and 2022, and finished 92nd globally in Kick Start Round G 2022.
 
+- name: Codeforces - Max Rating 1867
+  organization:
+    name: Codeforces
+    url: https://codeforces.com
+  courseOverview: Participated in 170+ rated contests with a maximum rating of 1867 (Expert).
+  certificateURL: "https://codeforces.com/profile/obaydullahmhs"
