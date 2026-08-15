@@ -1,26 +1,29 @@
 # section information
 section:
-  name: Achievements
-  id: achievements
-  # No achievement gallery yet - flip this to true and add images under
-  # assets/images/sections/achievements/ when you have some.
-  enable: false
+  name: Gallery
+  id: gallery
+  # the section id no longer matches the partial name, so point at it explicitly
+  template: sections/achievements.html
+  enable: true
   weight: 10
-  showOnNavbar: false
+  showOnNavbar: true
   # Can optionally hide the title in sections
   # hideTitle: true
 
-# Your achievements achievements
+# Photo gallery. Hugo generates the 300px thumbnail and 1500px lightbox
+# versions from these sources, so keep the originals around 2000px.
+#
+# The titles/summaries are drafts based on what's visible in the photos -
+# correct the contest names and add years.
 achievements:
-- title: Best Presenter
-  image: /images/sections/achievements/presenter.jpg
-  summary: Best presenter in the 2020 XYZ conference.
-- title: Champion
-  image: /images/sections/achievements/sport.jpg
-  summary: Champion in cycling inter-city cycling championship 2020.
-- title: Graduation
-  image: /images/sections/achievements/graduation-cap.jpg
-  summary: Received Bachelor of Science (B.Sc.) in Computer Science and Engineer from XYZ University.
-- title: Award Winner
-  image: /images/sections/achievements/woman-winner.jpg
-  summary: Wined best paper award at IEE Conference 2020.
+- title: Programming Contest Champion
+  image: /images/sections/achievements/iupc-champion.jpg
+  summary: Receiving the champion's trophy at Tech Surgence, the programming contest organized by the BUP Info Club and BUP Robotics Club.
+
+- title: On the Contest Floor
+  image: /images/sections/achievements/contest-floor.jpg
+  summary: Working through a problem with a teammate during an onsite programming contest.
+
+- title: Team Work
+  image: /images/sections/achievements/contest-team.jpg
+  summary: Five hours, one keyboard, three people - an onsite inter-university programming contest.
